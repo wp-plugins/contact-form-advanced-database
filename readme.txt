@@ -1,4 +1,4 @@
-=== Contact Form Advance Database===
+=== Contact Form Advanced Database===
 Contributors: akosicb
 Tags: contact, form, contact form database, contact form leads.
 Requires at least: 3.9.1
@@ -16,7 +16,7 @@ This plugin will log all information that are sent using the Contact Form 7 plug
 
 == Installation ==
 
-1. Upload the entire `contact-form-advance-db` folder to the `/wp-content/plugins/` directory.
+1. Upload the entire `contact-form-advanced-database` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Contact Form 7 plugin is required, please install it (https://wordpress.org/plugins/contact-form-7/).
 

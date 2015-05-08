@@ -1,6 +1,6 @@
 <?php add_thickbox(); ?>
 <div class="wrap">
-	<h2>CF Advance DB
+	<h2>Contact Form Advanced Database
 		<select id="cf7-selector">
 			<?php
 				$cf7Selector = $_GET['id'];
@@ -87,7 +87,7 @@
 							 </div>
 
 						</div>
-						<a href="#TB_inline?width=600&height=550&inlineId=<?php echo $thDiv; ?>" title="Contact Form 7 fields and value" class="view-button thickbox">View</a></td>
+						<a href="#TB_inline?width=600&height=550&inlineId=<?php echo $thDiv; ?>" title="Contact Form fields and value" class="view-button thickbox">View</a></td>
 						<td>
 							<span class="del-button" data-id="<?php echo $cf7Selector; ?>" data-key="cf7-adb-data" data-val="<?php echo base64_encode(maybe_serialize($leadData)); ?>">Delete</span>
 						</td>

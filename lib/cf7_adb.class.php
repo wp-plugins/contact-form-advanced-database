@@ -14,7 +14,7 @@ class CF7AdvanceDB{
 	}
 	
 	function renderGUI(){
-		add_submenu_page( 'wpcf7','CF7 Advance DB','CF Advance DB', 'manage_options', 'cf7-adb', array($this,'renderBackend') );
+		add_submenu_page( 'wpcf7','Contact Form Advanced Database','Contact Form Advanced Database', 'manage_options', 'cf7-adb', array($this,'renderBackend') );
 	}
 	
 	function renderBackend(){
@@ -49,6 +49,7 @@ class CF7AdvanceDB{
 	   if(!empty($_POST['data'])){
 			foreach($_POST['data'] as $postData){
 				delete_post_meta($postData['id'],$postData['key'],maybe_unserialize(base64_decode($postData['val'])));
+				
 			}
 			echo "success";
 	   }else{
@@ -63,7 +64,7 @@ class CF7AdvanceDB{
 		$hook = add_submenu_page(null, '', '', 'administrator', 'cf7-adb-export-xls', function(){});
 		add_action('load-' . $hook, function() {
 			$id= $_GET['id'];
-			$filename = "cfad_" . date('Ymd') . ".xls";
+			$filename = "contact_form_advanced_database_" . date('Ymd') . ".xls";
 			header("Content-Disposition: attachment; filename=\"$filename\"");
 			header("Content-Type: application/vnd.ms-excel");
 			
