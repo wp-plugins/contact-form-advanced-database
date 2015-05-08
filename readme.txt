@@ -1,6 +1,6 @@
 === Contact Form Advanced Database===
 Contributors: akosicb, nadinecamille
-Tags: contact, form, contact form database, contact form leads.
+Tags: contact, form, contact form database, contact form leads, contact form db, db.
 Requires at least: 3.9.1
 Tested up to: 4.2.2
 Stable tag: 4.2.2
