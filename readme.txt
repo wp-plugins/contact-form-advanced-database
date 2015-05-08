@@ -3,7 +3,7 @@ Contributors: akosicb
 Tags: contact, form, contact form database, contact form leads.
 Requires at least: 3.9.1
 Tested up to: 4.1.2
-Stable tag: 4.1.2
+Stable tag: 4.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,15 @@ You will find 'CF Advance DB' sub menu in your WordPress admin panel under the `
 
 == Screenshots ==
 
-1. screenshot-1.png 
-2. screenshot-2.png 
+1. /assets/screenshot-1.png 
+2. /assets/screenshot-2.png 
 
+== Changelog ==
 
+= 1.0.1 =
+* Minor Bugs Fixed
+
+== Upgrade Notice ==
+
+= 1.0.1 =
+Minor Bugs on the UI fixed.
