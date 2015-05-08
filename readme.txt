@@ -32,6 +32,9 @@ You will find 'CF Advance DB' sub menu in your WordPress admin panel under the `
 = 1.0.1 =
 * Minor Bugs Fixed
 
+= 1.0 =
+* First
+
 == Upgrade Notice ==
 
 = 1.0.1 =
