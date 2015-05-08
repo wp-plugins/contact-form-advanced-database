@@ -7,7 +7,7 @@ Stable tag: 4.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A Very Simple plugin that will capture all the emails being sent using Contact Form 7 Plugin...
+A Very Simple plugin that will capture all the emails being sent using Contact Form 7 Plugin.
 
 == Description ==
 
