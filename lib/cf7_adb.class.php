@@ -49,7 +49,6 @@ class CF7AdvanceDB{
 	   if(!empty($_POST['data'])){
 			foreach($_POST['data'] as $postData){
 				delete_post_meta($postData['id'],$postData['key'],maybe_unserialize(base64_decode($postData['val'])));
-				
 			}
 			echo "success";
 	   }else{

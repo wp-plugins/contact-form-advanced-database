@@ -67,12 +67,13 @@
 			</tfoot>
 			<tbody>
 				<?php 
-				foreach(get_post_meta($cf7Selector,'cf7-adb-data') as $leadData){ 
+				foreach(get_post_meta($cf7Selector,'cf7-adb-data') as $leadData){
+					$dataToPass = $leadData;	
 					$thDiv = rand(1,1000).'_'.time().'_'.rand(1000,5000);
 					unset($leadData['_wpcf7'],$leadData['_wpcf7_version'],$leadData['_wpcf7_locale'],$leadData['_wpcf7_unit_tag'],$leadData['_wpnonce'],$leadData['_wpcf7_is_ajax_call']);
 				?>
 					<tr>
-						<td><input class="adb-chk" type="checkbox" data-status="0" data-id="<?php echo $cf7Selector; ?>" data-key="cf7-adb-data" value="<?php echo base64_encode(maybe_serialize($leadData)); ?>"></td>
+						<td><input class="adb-chk" type="checkbox" data-status="0" data-id="<?php echo $cf7Selector; ?>" data-key="cf7-adb-data" value="<?php echo base64_encode(maybe_serialize($dataToPass)); ?>"></td>
 						<?php 
 							 if(count($leadData) == count($colKeys)){
 							foreach($colKeys as $colKeysData){ ?>
@@ -109,7 +110,7 @@
 						</div>
 						<a href="#TB_inline?width=600&height=550&inlineId=<?php echo $thDiv; ?>" title="Contact Form fields and value" class="view-button thickbox">View</a></td>
 						<td>
-							<span class="del-button" data-id="<?php echo $cf7Selector; ?>" data-key="cf7-adb-data" data-val="<?php echo base64_encode(maybe_serialize($leadData)); ?>">Delete</span>
+							<span class="del-button" data-id="<?php echo $cf7Selector; ?>" data-key="cf7-adb-data" data-val="<?php echo base64_encode(maybe_serialize($dataToPass)); ?>">Delete</span>
 						</td>
 					</tr>
 				<?php } ?>

@@ -31,6 +31,9 @@ You will find 'Contact Form Advanced Database' sub menu in your WordPress admin 
 
 == Changelog ==
 
+= 1.0.3 =
+* Delete not working fixed.
+
 = 1.0.2 =
 * Minor Bugs Fixed
 
