@@ -14,7 +14,6 @@ A Very Simple plugin that will capture all the emails being sent using Contact F
 This plugin will log all information that are sent using the Contact Form 7 plugin and grouped by the Contact Form 7 created shortcodes. It will provide a simple UI to manage your leads, people that contacted you, sent email via your website, etc.,. It is basically be the database of sent emails of contact form 7 plugin. 
 
 
-
 == Installation ==
 
 1. Upload the entire `contact-form-advanced-database` folder to the `/wp-content/plugins/` directory.
