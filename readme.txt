@@ -29,6 +29,9 @@ You will find 'Contact Form Advanced Database' sub menu in your WordPress admin 
 
 == Changelog ==
 
+= 1.0.2 =
+* Minor Bugs Fixed
+
 = 1.0.1 =
 * Minor Bugs Fixed
 

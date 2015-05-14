@@ -87,8 +87,21 @@
 	text-align:center;
 	font-weight:bold;
 	text-transform: uppercase;
+	
+}
+#property-lead-table thead th{
+cursor:pointer;
 }
 #property-lead-table td{
-	vertical-align:middle;
+	vertical-align:top;
 	height: 60px;
+}
+#property-lead-table .chk-td{
+	vertical-align:middle;
+}
+span.edited-entries{
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:10px;
+	color:#398f14;
 }

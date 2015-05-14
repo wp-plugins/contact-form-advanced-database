@@ -69,21 +69,41 @@
 				<?php 
 				foreach(get_post_meta($cf7Selector,'cf7-adb-data') as $leadData){ 
 					$thDiv = rand(1,1000).'_'.time().'_'.rand(1000,5000);
+					unset($leadData['_wpcf7'],$leadData['_wpcf7_version'],$leadData['_wpcf7_locale'],$leadData['_wpcf7_unit_tag'],$leadData['_wpnonce'],$leadData['_wpcf7_is_ajax_call']);
 				?>
 					<tr>
 						<td><input class="adb-chk" type="checkbox" data-status="0" data-id="<?php echo $cf7Selector; ?>" data-key="cf7-adb-data" value="<?php echo base64_encode(maybe_serialize($leadData)); ?>"></td>
-						<?php foreach($colKeys as $colKeysData){ ?>
+						<?php 
+							 if(count($leadData) == count($colKeys)){
+							foreach($colKeys as $colKeysData){ ?>
 							<td><?php echo (strlen($leadData[$colKeysData]) > 60 )?substr($leadData[$colKeysData],0,60).'...':$leadData[$colKeysData]; ?></td>
-						<?php } ?>
+						<?php }}else{ 
+								foreach(array_keys($leadData) as $leadDatas){ 
+								echo '<td><span class="edited-entries">'.$leadDatas.'</span><br />'.((strlen($leadData[$leadDatas]) > 60 )?substr($leadData[$leadDatas],0,60).'...':$leadData[$leadDatas]).'</td>'; 
+							}}	
+
+						?>
+						
 						<td>
 						<div id="<?php echo $thDiv; ?>" style="display:none;">
 							 <div>
-								  <?php foreach($colKeys as $colKeysData){ ?>
+								  <?php 
+								  if(count($leadData) == count($colKeys)){
+								  foreach($colKeys as $colKeysData){ ?>
 									<div class="adb-per-line">
 										<div class="field-name"><?php echo strtoupper($colKeysData) ?></div>
 										<div class="field-value"><?php echo $leadData[$colKeysData] ?></div>
 									</div>
-								 <?php } ?>
+								 <?php }}else{ ?>
+								  <?php
+									
+									foreach(array_keys($leadData) as $leadDatas){ ?>
+										<div class="adb-per-line">
+											<div class="field-name"><?php echo strtoupper($leadDatas) ?></div>
+											<div class="field-value"><?php echo $leadData[$leadDatas] ?></div>
+										</div>
+								 
+								 <?php }}  ?>
 							 </div>
 
 						</div>
