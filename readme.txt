@@ -16,10 +16,11 @@ This plugin will log all information that are sent using the Contact Form 7 plug
 Working for both single install WordPress Site and Multi Site.
 
 Features
-* Very Simple UI
-* Interactive Search
-* Interactive Sorting
-
+<ul>
+<li>Very Simple UI</li>
+<li>Interactive Search</li>
+<li>Interactive Sorting</li>
+</ul>
 
 == Installation ==
 
