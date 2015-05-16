@@ -15,6 +15,11 @@ This plugin will log all information that are sent using the Contact Form 7 plug
 
 Working for both single install WordPress Site and Multi Site.
 
+Features
+* Very Simple UI
+* Interactive Search
+* Interactive Sorting
+
 
 == Installation ==
 
@@ -30,6 +35,10 @@ You will find 'Contact Form Advanced Database' sub menu in your WordPress admin 
 2. /assets/screenshot-2.png 
 
 == Changelog ==
+
+= 1.0.4 =
+* Radio Button Not displaying fixed
+* Checkbox Not displaying Fixed
 
 = 1.0.3 =
 * Delete not working fixed.
