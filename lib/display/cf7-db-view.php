@@ -77,10 +77,28 @@
 						<?php 
 							 if(count($leadData) == count($colKeys)){
 							foreach($colKeys as $colKeysData){ ?>
-							<td><?php echo (strlen($leadData[$colKeysData]) > 60 )?substr($leadData[$colKeysData],0,60).'...':$leadData[$colKeysData]; ?></td>
+							<td><?php 
+							$stringToPrint = '';
+							if(is_array($leadData[$colKeysData])){	
+								foreach($leadData[$colKeysData] as $arrData){
+									$stringToPrint .= $arrData.', ';	
+								}
+								echo rtrim($stringToPrint, ", ");
+							}else{
+								echo (strlen($leadData[$colKeysData]) > 60 )?substr($leadData[$colKeysData],0,60).'...':$leadData[$colKeysData]; 
+							}
+							?></td>
 						<?php }}else{ 
 								foreach(array_keys($leadData) as $leadDatas){ 
-								echo '<td><span class="edited-entries">'.$leadDatas.'</span><br />'.((strlen($leadData[$leadDatas]) > 60 )?substr($leadData[$leadDatas],0,60).'...':$leadData[$leadDatas]).'</td>'; 
+								$stringToPrint = '';
+								if(is_array($leadData[$leadDatas])){	
+									foreach($leadData[$leadDatas] as $arrData){
+										$stringToPrint .= $arrData.', ';	
+									}
+									echo '<td><span class="edited-entries">'.$leadDatas.'</span><br />'.rtrim($stringToPrint, ", ").'</td>'; 
+								}else{
+									echo '<td><span class="edited-entries">'.$leadDatas.'</span><br />'.((strlen($leadData[$leadDatas]) > 60 )?substr($leadData[$leadDatas],0,60).'...':$leadData[$leadDatas]).'</td>'; 	
+								}
 							}}	
 
 						?>
@@ -90,10 +108,20 @@
 							 <div>
 								  <?php 
 								  if(count($leadData) == count($colKeys)){
-								  foreach($colKeys as $colKeysData){ ?>
+								  foreach($colKeys as $colKeysData){
+								  ?>
 									<div class="adb-per-line">
 										<div class="field-name"><?php echo strtoupper($colKeysData) ?></div>
-										<div class="field-value"><?php echo $leadData[$colKeysData] ?></div>
+										<div class="field-value"><?php 
+											if(is_array($leadData[$colKeysData])){
+												foreach($leadData[$colKeysData] as $arrData){
+													echo $arrData.'<br />';
+												} 
+											}else{
+												echo $leadData[$colKeysData];
+											}
+										
+										?></div>
 									</div>
 								 <?php }}else{ ?>
 								  <?php
@@ -101,7 +129,15 @@
 									foreach(array_keys($leadData) as $leadDatas){ ?>
 										<div class="adb-per-line">
 											<div class="field-name"><?php echo strtoupper($leadDatas) ?></div>
-											<div class="field-value"><?php echo $leadData[$leadDatas] ?></div>
+											<div class="field-value"><?php 
+												if(is_array($leadData[$leadDatas])){
+													foreach($leadData[$leadDatas] as $arrData){
+														echo $arrData.'<br />';; 
+													}
+												}else{
+													echo $leadData[$leadDatas];
+												}
+											?></div>
 										</div>
 								 
 								 <?php }}  ?>
