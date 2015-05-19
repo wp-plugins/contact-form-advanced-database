@@ -63,7 +63,7 @@ class CF7AdvanceDB{
 		$hook = add_submenu_page(null, '', '', 'administrator', 'cf7-adb-export-xls', function(){});
 		add_action('load-' . $hook, function() {
 			$id= $_GET['id'];
-			$filename = "contact_form_advanced_database_" . date('Ymd') . ".xls";
+			$filename = "contact_form_advanced_database_" . date('Ymd') . ".csv";
 			header("Content-Disposition: attachment; filename=\"$filename\"");
 			header("Content-Type: application/vnd.ms-excel");
 			

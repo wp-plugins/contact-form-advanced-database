@@ -37,6 +37,11 @@ You will find 'Contact Form Advanced Database' sub menu in your WordPress admin 
 
 == Changelog ==
 
+= 1.0.5 =
+* Export Button On Firebox not working fixed
+* Emails are now detected and appended with mailto attribute
+* Very minor changes on table layout.
+
 = 1.0.4 =
 * Radio Button Not displaying fixed
 * Checkbox Not displaying Fixed

@@ -1,6 +1,10 @@
 <?php add_thickbox(); ?>
 <div class="wrap">
 	<h2>Contact Form Advanced Database
+
+		
+	</h2>
+	 <div id="poststuff">
 		<select id="cf7-selector">
 			<?php
 				$cf7Selector = $_GET['id'];
@@ -26,19 +30,17 @@
 				wp_reset_postdata(); 
 			?>
 		</select>
-		
-	</h2>
-	 <div id="poststuff">
 		<?php 
 			$colKeys = array();
 			$cf7AdbArr = get_post_meta($cf7Selector,'cf7-adb-data',true);
 			
 			if(!empty($cf7AdbArr)):	
 		?>
+		
 		<button class="button" id="adb-delete-button">Delete</button>
-		<button class="button" id="adb-export">
-			<a target="_blank" href="admin.php?page=cf7-adb-export-xls&id=<?php echo $cf7Selector; ?>">Export XLS</a>
-		</button>
+		<!--<button class="button" id="adb-export">-->
+			<a target="_blank"  class="button" id="adb-export" href="admin.php?page=cf7-adb-export-xls&id=<?php echo $cf7Selector; ?>">Export XLS</a>
+		<!-- </button> --> 
 		<table class="wp-list-table widefat fixed media paginated" id="property-lead-table" data-page-length='10'>
 			<thead>
 				<th class="manage-column column-cb check-column"></th>
@@ -81,11 +83,17 @@
 							$stringToPrint = '';
 							if(is_array($leadData[$colKeysData])){	
 								foreach($leadData[$colKeysData] as $arrData){
-									$stringToPrint .= $arrData.', ';	
+									$stringToPrint .= ((filter_var($arrData, FILTER_VALIDATE_EMAIL))?'<a href="'.$arrData.'">'.$arrData.'</a>':$arrData).', ';	
 								}
 								echo rtrim($stringToPrint, ", ");
 							}else{
+								if(filter_var($leadData[$colKeysData], FILTER_VALIDATE_EMAIL)){
+									echo '<a href="mailto:'.$leadData[$colKeysData].'">';
+								}
 								echo (strlen($leadData[$colKeysData]) > 60 )?substr($leadData[$colKeysData],0,60).'...':$leadData[$colKeysData]; 
+								if(filter_var($leadData[$colKeysData], FILTER_VALIDATE_EMAIL)){
+									echo '</a>';
+								}
 							}
 							?></td>
 						<?php }}else{ 
@@ -93,16 +101,20 @@
 								$stringToPrint = '';
 								if(is_array($leadData[$leadDatas])){	
 									foreach($leadData[$leadDatas] as $arrData){
-										$stringToPrint .= $arrData.', ';	
+										$stringToPrint .= ((filter_var($arrData, FILTER_VALIDATE_EMAIL))?'<a href="'.$arrData.'">'.$arrData.'</a>':$arrData).', ';	
 									}
 									echo '<td><span class="edited-entries">'.$leadDatas.'</span><br />'.rtrim($stringToPrint, ", ").'</td>'; 
 								}else{
+									if(filter_var($leadData[$leadDatas], FILTER_VALIDATE_EMAIL)){
+									echo '<td><span class="edited-entries">'.$leadDatas.'</span><br /><a href="mailto:'.$leadData[$leadDatas].'">'.((strlen($leadData[$leadDatas]) > 60 )?substr($leadData[$leadDatas],0,60).'...':$leadData[$leadDatas]).'</a></td>';
+									}else{
+										echo '<td><span class="edited-entries">'.$leadDatas.'</span><br />'.((strlen($leadData[$leadDatas]) > 60 )?substr($leadData[$leadDatas],0,60).'...':$leadData[$leadDatas]).'</td>';
+									}
 									echo '<td><span class="edited-entries">'.$leadDatas.'</span><br />'.((strlen($leadData[$leadDatas]) > 60 )?substr($leadData[$leadDatas],0,60).'...':$leadData[$leadDatas]).'</td>'; 	
 								}
 							}}	
 
 						?>
-						
 						<td>
 						<div id="<?php echo $thDiv; ?>" style="display:none;">
 							 <div>
@@ -115,10 +127,10 @@
 										<div class="field-value"><?php 
 											if(is_array($leadData[$colKeysData])){
 												foreach($leadData[$colKeysData] as $arrData){
-													echo $arrData.'<br />';
+													echo ((filter_var($arrData, FILTER_VALIDATE_EMAIL))?'<a href="'.$arrData.'">'.$arrData.'</a>':$arrData).'<br />';
 												} 
 											}else{
-												echo $leadData[$colKeysData];
+												echo ((filter_var($leadData[$colKeysData], FILTER_VALIDATE_EMAIL))?'<a href="'.$leadData[$colKeysData].'">'.$leadData[$colKeysData].'</a>':$leadData[$colKeysData]).'<br />';
 											}
 										
 										?></div>
@@ -132,10 +144,11 @@
 											<div class="field-value"><?php 
 												if(is_array($leadData[$leadDatas])){
 													foreach($leadData[$leadDatas] as $arrData){
-														echo $arrData.'<br />';; 
+														echo ((filter_var($arrData, FILTER_VALIDATE_EMAIL))?'<a href="'.$arrData.'">'.$arrData.'</a>':$arrData).'<br />';
 													}
 												}else{
-													echo $leadData[$leadDatas];
+													echo ((filter_var($leadData[$leadDatas], FILTER_VALIDATE_EMAIL))?'<a href="'.$leadData[$leadDatas].'">'.$leadData[$leadDatas].'</a>':$leadData[$leadDatas]).'<br />';
+													
 												}
 											?></div>
 										</div>
@@ -153,7 +166,7 @@
 			</tbody>
 		</table> 	
 		<?php else: ?>
-		No Data Available
+			<div id="no-data">No Data Available</div>
 		<?php endif; ?>	
 	</div>
 </div>
